@@ -23,4 +23,9 @@ stages:
   - job: FirstJob_in_Prod
     steps:
     - script: echo Say hi to prod
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
    
